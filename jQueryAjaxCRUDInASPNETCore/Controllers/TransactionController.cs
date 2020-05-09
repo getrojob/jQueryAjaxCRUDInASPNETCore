@@ -142,8 +142,9 @@ namespace jQueryAjaxCRUDInASPNETCore.Controllers
             var transactionModel = await _context.Transactions.FindAsync(id);
             _context.Transactions.Remove(transactionModel);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Json(new { html = Helper.RenderRazorViewToString(this, "_ViewAll", _context.Transactions.ToList()) });
         }
+
 
         private bool TransactionModelExists(int id)
         {
