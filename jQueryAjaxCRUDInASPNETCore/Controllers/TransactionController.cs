@@ -26,6 +26,7 @@ namespace jQueryAjaxCRUDInASPNETCore.Controllers
 
         // GET: Transaction/AddOrEdit
         // GET: Transaction/AddOrEdit/5
+        [NoDirectAccess]
         public async Task<IActionResult> AddOrEdit(int id = 0)
         {
             if (id == 0)
